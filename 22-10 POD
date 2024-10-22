@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+int data;
+struct node*prev,*next;
+}*pos=NULL,*head=NULL,*newnoede=NULL;
+void create(int value)
+{
+    newnode=new node();
+    newnode->data=value;
+    newnode->prev=NULL;
+    newnode->next=NULL;
+    if(head==NULL)
+    {
+       head=newnode;
+       pos=newnode;
+    }
+    else
+    {
+         pos->next=newnode;
+         newnode->prev=pos;
+         pos=newnode;
+    }
+}
+void display()
+{
+    if(head=NULL)
+    return;
+    else
+    {
+    pos=head;
+    while(pos!=NULL)
+    {
+    cout<<pos->data<<" ";
+    pos=pos->next;
+}
+int main()
+{
+int n,value;
+cin>>n;
+for(int i=0;i<n;i++)
+{
+    cin>>value;
+    create(value);
+}
+display();
+}
