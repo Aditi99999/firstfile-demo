@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string str;
+    int letters = 0, digits = 0, specialChars = 0;  // Initialize counters
+
+    // Get the entire line of input
+    getline(cin, str);
+
+    // Loop through each character in the string
+    for (char c : str) {
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+            letters++;  // Count letters
+        } 
+        else if (c >= '0' && c <= '9') {
+            digits++;  // Count digits
+        } 
+        else if (!isspace(c)) {  // Count special characters (excluding spaces)
+            specialChars++;
+        }
+    }
+
+    // Print the counts: letters, digits, and special characters (space-separated)
+    cout << letters << " " << digits << " " << specialChars << endl;
+
+    return 0;
+}
